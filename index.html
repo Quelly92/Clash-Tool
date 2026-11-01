@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#11131b">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Potion Time">
+  <meta name="description" content="Instant, offline upgrade time calculator for Clash of Clans potions.">
+  <title>Potion Time · Clash of Clans Calculator</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icons/icon-192.png">
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+<main>
+  <header><p class="eyebrow">CLASH OF CLANS</p><h1>Potion Time</h1><p class="subtitle">Less waiting. More upgrading.</p></header>
+  <div class="tabs" role="tablist" aria-label="Potion type">
+    <button id="research" role="tab" aria-selected="true" aria-controls="calculator">Research / Pet</button>
+    <button id="builder" role="tab" aria-selected="false" aria-controls="calculator" tabindex="-1">Builder</button>
+  </div>
+  <section id="calculator" role="tabpanel" aria-labelledby="research">
+    <p id="mechanics" class="mechanics">24× speed · 1 hour per potion</p>
+    <form novalidate>
+      <fieldset><legend>Remaining upgrade time</legend><div class="time-inputs">
+        <label>Days<input id="days" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="7" placeholder="0" autocomplete="off" aria-describedby="error"></label>
+        <label>Hours<input id="hours" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="7" placeholder="0" autocomplete="off" aria-describedby="error"></label>
+        <label>Minutes<input id="minutes" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="7" placeholder="0" autocomplete="off" aria-describedby="error"></label>
+      </div></fieldset>
+      <div class="quantity"><label for="potions">Potions<span>Used back to back</span></label><div class="stepper"><button id="minus" type="button" aria-label="Use one fewer potion">−</button><input id="potions" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="7" value="1" autocomplete="off" aria-describedby="error"><button id="plus" type="button" aria-label="Use one more potion">+</button></div></div>
+      <p id="error" role="status"></p>
+      <div class="result" aria-live="polite" aria-atomic="true"><p class="result-label">FINISHED IN</p><output id="completion">0s</output><p class="saved">Time saved <strong id="saved">0s</strong></p></div>
+      <p id="note" class="note">One upgrade, with boosts starting now.</p>
+      <div class="actions"><button type="reset">Clear</button><button id="copy" type="button">Copy result</button></div>
+      <p id="feedback" role="status"></p>
+    </form>
+  </section>
+  <footer><p id="offline">Preparing offline use…</p><details><summary>Install on iPhone</summary><p>Open in Safari, tap Share, then Add to Home Screen. Wait for “Ready offline” before your first offline use.</p></details><p class="legal">Unofficial fan tool. Not affiliated with Supercell.</p></footer>
+  <noscript>This calculator requires JavaScript enabled in your browser.</noscript>
+</main>
+</body>
+</html>
